@@ -2,7 +2,19 @@
 from flask import render_template
 from forum import app
 from flask import send_from_directory
+import requests
 
+@app.route('/send')
+def send_notification():
+    headers = {
+        'webpushrKey': '843f25b03dab2be8e3fe585d5dea5664',
+        'webpushrAuthToken': '20917',
+        'Content-Type': 'application/json',
+    }
+
+    data = '{"title":"Childrens Day","message":"Holiday","target_url":"pecforums.pythonanywhere.com"}'
+
+    response = requests.post('https://api.webpushr.com/v1/notification/send/all', headers=headers, data=data)
 
 @app.route('/')
 def home():
