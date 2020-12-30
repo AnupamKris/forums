@@ -6,6 +6,7 @@ import requests
 
 @app.route('/send')
 def send_notification():
+    proxies = {"https",'proxy.server:3128'}
     headers = {
         'webpushrKey': '843f25b03dab2be8e3fe585d5dea5664',
         'webpushrAuthToken': '20917',
