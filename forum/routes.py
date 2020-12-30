@@ -15,7 +15,7 @@ def send_notification():
 
     data = '{"title":"Childrens Day","message":"Holiday","target_url":"pecforums.pythonanywhere.com"}'
 
-    response = requests.post('https://api.webpushr.com/v1/notification/send/all', headers=headers, data=data)
+    response = requests.post('https://api.webpushr.com/v1/notification/send/all', headers=headers, data=data, proxies=proxies)
 
 @app.route('/')
 def home():
