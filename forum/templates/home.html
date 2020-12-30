@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HOME</title>
+  <link rel="stylesheet/less" type="text/css" href="/static/styles.less" />
+  <script src="//cdn.jsdelivr.net/npm/less@3.13" ></script>
+  <script src="/static/js/main.js" charset="utf-8"></script>
+</head>
+<body>
+  <div class="darklight" onclick="dark_mode_toggle()">D</div>
+  <form class="login-box" method="post" action="/login">
+    <h2>Login</h2>
+    <div class="input">
+      <div class="inputbox">
+        <label>Username</label>
+        <input type="text" name="username" placeholder="example@xyz.com">
+      </div>
+      <div class="inputbox">
+        <label>Password</label>
+        <input type="password" name="username" placeholder="Enter Password">
+      </div>
+      <div class="inputbox">
+        <input type="submit" name="" value="Sign In">
+      </div>
+    </div>
+    <p class = 'forget'>Forgot Password? <a href="">Click Here!</a> </p>
+  </form>
+  <script type="text/javascript">
+      var dark = true
+  </script>
+  <!-- start webpushr code --> <script>(function(w,d, s, id) {if(typeof(w.webpushr)!=='undefined') return;w.webpushr=w.webpushr||function(){(w.webpushr.q=w.webpushr.q||[]).push(arguments)};var js, fjs = d.getElementsByTagName(s)[0];js = d.createElement(s); js.id = id;js.async=1;js.src = "https://cdn.webpushr.com/app.min.js";fjs.parentNode.appendChild(js);}(window,document, 'script', 'webpushr-jssdk'));webpushr('setup',{'key':'BH5FlL6E96voJrbgG37axnHY-BW4EDZH90AC1zIjSQTbESD3mwCGw6YG3QXIpymdIuIIYVnfUldK8v39CnVpyyE' });</script><!-- end webpushr code -->
+</body>
+</html>
