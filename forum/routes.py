@@ -3,7 +3,7 @@ from flask import render_template
 from forum import app
 from flask import send_from_directory
 import requests
-
+import os
 @app.route('/send')
 def send_notification():
     headers = {
@@ -28,4 +28,7 @@ def login():
 
 @app.route('/webpushr-sw.js')
 def send():
-    return send_from_directory(r'C:\Users\admin\Desktop\Forums','webpushr-sw.js')
+    return send_from_directory(app.static_folder+os.sep+'js','webpushr-sw.js')
+@app.route('/favicon.ico')
+def icon():
+    return send_from_directory(app.static_folder+os.sep+'icon','favicon.ico')
