@@ -12,7 +12,7 @@ def send_notification():
         'Content-Type': 'application/json',
     }
 
-    data = '{"title":"Childrens Day","message":"Holiday","target_url":"pecforums.pythonanywhere.com", "icon":"https://pecforums.pythonanywhere.com/favicon.ico"}'
+    data = '{"title":"Childrens Day","message":"Holiday","target_url":"pecforums.pythonanywhere.com", "icon":"https://pecforums.pythonanywhere.com/notif.png"}'
 
     response = requests.post('https://api.webpushr.com/v1/notification/send/all', headers=headers, data=data)
 
@@ -29,6 +29,11 @@ def login():
 @app.route('/webpushr-sw.js')
 def send():
     return send_from_directory(app.static_folder+os.sep+'js','webpushr-sw.js')
+
 @app.route('/favicon.ico')
 def icon():
     return send_from_directory(app.static_folder+os.sep+'icon','favicon.ico')
+
+@app.route('/notif.png')
+def notif_icon():
+    return send_from_directory(app.static_folder+os.sep+'icon','icon.png')
