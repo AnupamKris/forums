@@ -11,8 +11,8 @@ def send_notification():
         'webpushrAuthToken': '20944',
         'Content-Type': 'application/json',
     }
-    icon = app.static_folder+os.sep+'icon'+os.sep+'favicon.ico'
-    data = '{"title":"Childrens Day","message":"Holiday","target_url":"pecforums.pythonanywhere.com", "icon":"'+icon+'"}'
+
+    data = '{"title":"Childrens Day","message":"Holiday","target_url":"pecforums.pythonanywhere.com", "icon":"https://pecforums.pythonanywhere.com/favicon.ico"}'
 
     response = requests.post('https://api.webpushr.com/v1/notification/send/all', headers=headers, data=data)
 
