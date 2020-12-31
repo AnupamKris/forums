@@ -6,16 +6,15 @@ import requests
 
 @app.route('/send')
 def send_notification():
-    proxies = {"https",'proxy.server:3128'}
     headers = {
-        'webpushrKey': '843f25b03dab2be8e3fe585d5dea5664',
-        'webpushrAuthToken': '20917',
+        'webpushrKey': '56146723d78a3315dc38a4be870b5e94',
+        'webpushrAuthToken': '20944',
         'Content-Type': 'application/json',
     }
 
     data = '{"title":"Childrens Day","message":"Holiday","target_url":"pecforums.pythonanywhere.com"}'
 
-    response = requests.post('https://api.webpushr.com/v1/notification/send/all', headers=headers, data=data, proxies=proxies)
+    response = requests.post('https://api.webpushr.com/v1/notification/send/all', headers=headers, data=data)
 
 @app.route('/')
 def home():
@@ -26,6 +25,7 @@ def login():
     username = request.form['username']
     password = request.form['password']
 
-@app.route('/webpushr')
+
+@app.route('/webpushr-sw.js')
 def send():
-    return send_from_directory('js', 'webpushr-sw.js')
+    return send_from_directory(r'C:\Users\admin\Desktop\Forums','webpushr-sw.js')
