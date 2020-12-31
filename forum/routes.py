@@ -12,7 +12,7 @@ def send_notification():
         'Content-Type': 'application/json',
     }
     icon = app.static_folder+os.sep+'icon'+os.sep+'favicon.ico'
-    data = f'{"title":"Childrens Day","message":"Holiday","target_url":"pecforums.pythonanywhere.com", "icon":"{icon}"}'
+    data = '{"title":"Childrens Day","message":"Holiday","target_url":"pecforums.pythonanywhere.com", "icon":"'+icon+'"}'
 
     response = requests.post('https://api.webpushr.com/v1/notification/send/all', headers=headers, data=data)
 
