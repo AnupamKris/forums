@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HOME</title>
+    <link rel="stylesheet/less" type="text/css" href="/static/styles.less" />
+    <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
+    <script src="/static/js/main.js" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div id="darklight" class="darklight" onclick="dark_mode_toggle()"></div>
+    <form class="login-box" method="post" action="/login">
+      <h2>Register</h2>
+      <div class="input">
+        <div class="inputbox">
+          <label>Name</label>
+          <input type="text" name="username" placeholder="Enter Name">
+        </div>
+        <div class="inputbox">
+          <label>Email</label>
+          <input type="email" name="username" placeholder="example@xyz.com">
+        </div>
+        <div class="inputbox">
+          <label>Username</label>
+          <input type="text" name="username" placeholder="Enter Username">
+        </div>
+        <div class="inputbox">
+          <label>Password</label>
+          <input type="password" name="username" placeholder="Enter Password">
+        </div>
+        <div class="inputbox">
+          <label>Repeat Password</label>
+          <input type="password" name="username" placeholder="Enter Password Again">
+        </div>
+        <div class="inputbox">
+          <input type="submit" name="" value="Sign Up">
+        </div>
+      </div>
+      <p class='forget'>Already Registered? <a href="/login">Click Here!</a> </p>
+    </form>
+  </body>
+  <script type="text/javascript">
+    init_dark()
+  </script>
+
+</html>

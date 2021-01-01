@@ -1,7 +1,8 @@
 
-from flask import render_template
-from forum import app
+from flask import render_template, request, redirect, url_for
+from forum import app, db, bcrypt
 from flask import send_from_directory
+from flask_login import login_user, login_required, logout_user
 import requests
 import os
 @app.route('/send')
@@ -16,15 +17,32 @@ def send_notification():
 
     response = requests.post('https://api.webpushr.com/v1/notification/send/all', headers=headers, data=data)
 
-@app.route('/')
+@app.route('/', methods=['GET'])
 def home():
-    return render_template('home.html')
+    return redirect(url_for('login'))
 
-@app.route('/login')
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    return render_template('register.html')
+
+@app.route('/login', methods=['GET','POST'])
 def login():
-    username = request.form['username']
-    password = request.form['password']
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        user = User.query.filter_by(email=email).first()
+        if user and bcrypt.check_password_hash(user.password, password):
+            login_user(user, remember=True)
+            return redirect(url_for('forum_home'))
+        else:
+            flash('Login Unsuccessful!')
+            return render_template('home.html')
+    else:
+        return render_template('home.html')
 
+@app.route('/forum_home')
+def forum_home():
+    return None
 
 @app.route('/webpushr-sw.js')
 def send():

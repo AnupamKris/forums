@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div class="darklight" onclick="dark_mode_toggle()">D</div>
+    <div id="darklight" class="darklight" onclick="dark_mode_toggle()">D</div>
     <form class="login-box" method="post" action="/login">
       <h2>Login</h2>
       <div class="input">
@@ -29,9 +29,11 @@
         </div>
       </div>
       <p class='forget'>Forgot Password? <a href="">Click Here!</a> </p>
+      <p class='forget'>New User? <a href="/register">Click Here!</a> </p>
     </form>
     <script type="text/javascript">
       var dark = true
+      init_dark()
     </script>
     <!-- start webpushr code -->
     <script>
