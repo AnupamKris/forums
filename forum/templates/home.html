@@ -9,33 +9,52 @@
     <link rel="stylesheet/less" type="text/css" href="/static/styles.less" />
     <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
     <script src="/static/js/main.js" charset="utf-8"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   </head>
 
   <body>
     <div id="darklight" class="darklight" onclick="dark_mode_toggle()">D</div>
-    <form class="login-box" method="post" action="/login">
+    <form role='form' class="login-box" method="post" action="/login">
       <h2>Login</h2>
       <div class="input">
         <div class="inputbox">
           <label>Username</label>
-          <input type="text" name="username" placeholder="example@xyz.com">
+          <input type="text" name="email" placeholder="example@xyz.com">
         </div>
         <div class="inputbox">
           <label>Password</label>
-          <input type="password" name="username" placeholder="Enter Password">
+          <input type="password" name="password" placeholder="Enter Password">
         </div>
         <div class="inputbox">
-          <input type="submit" name="" value="Sign In">
+          <div id="sub_button" class='submit'> Sign In </div>
         </div>
       </div>
       <p class='forget'>Forgot Password? <a href="">Click Here!</a> </p>
       <p class='forget'>New User? <a href="/register">Click Here!</a> </p>
     </form>
+    <div class="notifications" style="display:none">Wrong Username Or Password Please Retry</div>
     <script type="text/javascript">
       var dark = true
       init_dark()
     </script>
-    <!-- start webpushr code -->
+
+    <script type="text/javascript">
+      $("#sub_button").click(function() {
+        console.log('AJX POSTING')
+        $.ajax({
+          type: 'POST',
+          url: "/login",
+          data: $('form').serialize(),
+          success: function(result) {
+            var value = result['data']
+            if ( value == 'true' ) {
+              $('.notifications').show().delay(5000).fadeOut();
+            }
+          }
+        })
+      })
+    </script>
+
     <script>
       (function(w, d, s, id) {
         if (typeof(w.webpushr) !== 'undefined') return;

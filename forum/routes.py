@@ -1,10 +1,12 @@
 
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, jsonify, make_response
 from forum import app, db, bcrypt
 from flask import send_from_directory
 from flask_login import login_user, login_required, logout_user
 import requests
 import os
+from forum.models import User, Post
+
 @app.route('/send')
 def send_notification():
     headers = {
@@ -35,14 +37,23 @@ def login():
             login_user(user, remember=True)
             return redirect(url_for('forum_home'))
         else:
-            flash('Login Unsuccessful!')
-            return render_template('home.html')
+            return make_response({'data':'true'})
     else:
         return render_template('home.html')
+
+@app.route('/check')
+def check():
+    return make_response({'Checkd': 'true'})
 
 @app.route('/forum_home')
 def forum_home():
     return None
+
+@app.route('/temp')
+def temp():
+    return render_template('temp.html')
+
+# -------- Misc Routes -------- #
 
 @app.route('/webpushr-sw.js')
 def send():
