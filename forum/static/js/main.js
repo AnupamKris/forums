@@ -24,7 +24,7 @@ function init_dark() {
                       -2px -2px 6px #fefefe`,
       '@shadow-small-inset': `inset 2px 2px 6px #bcbcbc,
                               inset -2px -2px 6px #fefefe`,
-      '@color-secondary': '#29248e',
+      '@color-secondary': '#32a3b1',
       '@color' : '#868686'
     })
     div.innerHTML = 'L'
@@ -45,7 +45,7 @@ function dark_mode_toggle() {
                         -2px -2px 6px #fefefe`,
         '@shadow-small-inset': `inset 2px 2px 6px #bcbcbc,
                                 inset -2px -2px 6px #fefefe`,
-        '@color-secondary': '#29248e',
+        '@color-secondary': '#32a3b1',
         '@color' : '#aba7a7'
 
       })
