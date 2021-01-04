@@ -1,28 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 
   <head>
     {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>{% block title %}{% endblock %} - My Webpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="/static/js/main.js" charset="utf-8"></script>
+    <link rel="stylesheet/less" type="text/css" href="/static/styles.less" />
+    <link rel="stylesheet/less" type="text/css" href="/static/base.less" />
+    <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
+    <title>PF | {% block title %}{% endblock %}</title>
+    <script src="/static/js/jquery-3.5.1.js"></script>
+    <script src="https://kit.fontawesome.com/d47c0d1ff1.js" crossorigin="anonymous"></script>
     {% endblock %}
   </head>
 
-  <body>̥̥
-   <nav>
-      <ul>
-        <li>Home</li>
-        <li>About</li>
-        <li>Profile</li>
-        <li>Notifications</li>
+  <body>
+    <nav class="navbar" id='navbar'>
+      <ul class="navitems">
+        <li class="clicker" id="navopc" onClick="openNav()">
+          <i class="fas fa-bars"></i>
+        </li>
+        <li><i class="fas fa-home"></i></li>
+        <li><i class="fas fa-info-circle"></i></li>
+        <li><i class="fas fa-user-circle"></i></li>
+        <li><i class="fas fa-bell"></i></li>
+        <li>
+          <div id="darklight" class="darklight" onclick="dark_mode_toggle()"><i class="fas fa-sun"></i></div>
+        </li>
       </ul>
     </nav>
-    <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
+    <div class="content">{% block content %}{% endblock %}</div>
+    <div class="footer">
       {% block footer %}
-      &copy; Copyright 2010 by <a href="http://domain.invalid/">you</a>.
+      <div>&copy; Copyright 2010 by <a href="http://domain.invalid/">AnupamKris</a>.</div>
       {% endblock %}
     </div>
+    <script type="text/javascript">
+      var width = window.matchMedia("(max-width: 600px)")
+      init_dark()
+
+      function openNav() {
+        if (width.matches) {
+          document.getElementById("navbar").style.top = "0px";
+          document.getElementById("navopc").setAttribute("onClick", "closeNav()")
+        } else {
+          document.getElementById("navbar").style.right = "0px";
+          document.getElementById("navopc").setAttribute("onClick", "closeNav()")
+        }
+      }
+
+      function closeNav() {
+        if (width.matches) {
+          document.getElementById("navbar").style.top = "-420px";
+          document.getElementById("navopc").setAttribute("onClick", "openNav()")
+        } else {
+          document.getElementById("navbar").style.right = "-420px";
+          document.getElementById("navopc").setAttribute("onClick", "openNav()")
+        }
+      }
+    </script>
   </body>
 
 </html>

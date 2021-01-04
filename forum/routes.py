@@ -2,7 +2,7 @@
 from flask import render_template, request, redirect, url_for, jsonify, make_response, flash, session
 from forum import app, db, bcrypt
 from flask import send_from_directory
-from flask_login import login_user, login_required, logout_user
+from flask_login import login_user, login_required, logout_user, current_user
 import requests
 import os
 from forum.models import User, Post
@@ -27,6 +27,8 @@ def home():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
@@ -52,6 +54,8 @@ def register():
 
 @app.route('/login', methods=['GET','POST'])
 def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('home'))
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']

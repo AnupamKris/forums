@@ -1,10 +1,13 @@
 // localStorage.setItem("theme", "true")
+
+
+
 function init_dark() {
   let dark = localStorage.getItem("theme")
   var div = document.getElementById('darklight')
   console.log(localStorage.getItem("theme"))
   if (dark == 'true') {
-    div.innerHTML = 'D'
+    div.innerHTML = '<i class="fas fa-moon"></i>'
     // less.modifyVars({
     //   '@background-color': '#131419',
     //   '@shadow-big': `-5px -5px 10px rgba(255,255,255,0.05),
@@ -25,9 +28,9 @@ function init_dark() {
       '@shadow-small-inset': `inset 2px 2px 6px #bcbcbc,
                               inset -2px -2px 6px #fefefe`,
       '@color-secondary': '#32a3b1',
-      '@color' : '#868686'
+      '@color' : '#434553'
     })
-    div.innerHTML = 'L'
+    div.innerHTML = '<i class="fas fa-sun"></i>'
   }
 }
 
@@ -46,11 +49,11 @@ function dark_mode_toggle() {
         '@shadow-small-inset': `inset 2px 2px 6px #bcbcbc,
                                 inset -2px -2px 6px #fefefe`,
         '@color-secondary': '#32a3b1',
-        '@color' : '#aba7a7'
+        '@color' : '#434553'
 
       })
       localStorage.setItem("theme", "false")
-      div.innerHTML = 'L'
+      div.innerHTML = '<i class="fas fa-sun"></i>'
 
     } else {
       less.modifyVars({
@@ -66,6 +69,6 @@ function dark_mode_toggle() {
 
       })
       localStorage.setItem("theme", "true")
-      div.innerHTML = 'D'
+      div.innerHTML = '<i class="fas fa-moon"></i>'
     }
 }

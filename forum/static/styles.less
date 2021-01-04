@@ -15,11 +15,15 @@
   transition: 0.5s;
 }
 
+html{
+  height: 100%;
+  width: 100%;
+}
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 100%;
   background: @background-color;
 }
 .login-box {
@@ -104,6 +108,9 @@ body {
   left: 5px;
   top: 10px;
   box-shadow: @shadow-big;
+  i{
+    font-size: 2.5rem;
+  }
 }
 
 .notifications {
@@ -130,10 +137,77 @@ body {
   align-items: center;
 }
 
+
+.navbar {
+  background: @background-color;
+  color: @color;
+  position: fixed;
+  width: 500px;
+  height: 80px;
+  top: 10px;
+  right: -420px;
+  box-shadow: @shadow-big;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 40px 0 0 40px;
+
+}
+
+.navitems {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  margin: 0 10px;
+
+}
+
+path {
+
+}
+
+.clicker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
+.clicker div {
+  background-color: @color;
+  height: 5px;
+  width: 30pt;
+  margin: 5px 10px;
+}
+
+i {
+  color: @color;
+  font-size: 3rem;
+}
+
+
+
 @media only screen and (max-width: 600px) {
   .notifications {
     width: calc(100% - 20px);
     left : calc(100% - (100% - 10px));
     z-index: 200;
+  }
+  .navbar {
+    width: 80px;
+    height: 500px;
+    top: -420px;
+    right: 10px;
+    border-radius: 0 0 40px 40px;
+  }
+
+  .navitems{
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-around;
+    height: 100%;
   }
 }

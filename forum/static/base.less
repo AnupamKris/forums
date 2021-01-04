@@ -1,0 +1,36 @@
+@import url("./colors.less");
+
+
+.darklight {
+  height: 60px;
+  width: 60px;
+  position: static;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+}
+.footer {
+  width: 100%;
+  flex-shrink: 0;
+  background-color: @color;
+  color: @background-color;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+  a {
+    color: #ff0047;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  nav {
+  
+  }
+}
