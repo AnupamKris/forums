@@ -8,6 +8,7 @@
     <script src="/static/js/main.js" charset="utf-8"></script>
     <link rel="stylesheet/less" type="text/css" href="/static/styles.less" />
     <link rel="stylesheet/less" type="text/css" href="/static/base.less" />
+    <link rel="stylesheet/less" type="text/css" href="/static/navigation.less" />
     <script src="//cdn.jsdelivr.net/npm/less@3.13"></script>
     <title>PF | {% block title %}{% endblock %}</title>
     <script src="/static/js/jquery-3.5.1.js"></script>
@@ -16,49 +17,42 @@
   </head>
 
   <body>
-    <nav class="navbar" id='navbar'>
-      <ul class="navitems">
-        <li class="clicker" id="navopc" onClick="openNav()">
-          <i class="fas fa-bars"></i>
-        </li>
-        <li><i class="fas fa-home"></i></li>
-        <li><i class="fas fa-info-circle"></i></li>
-        <li><i class="fas fa-user-circle"></i></li>
-        <li><i class="fas fa-bell"></i></li>
+    <input type="checkbox" id="navbarCheckbox" class="navbar-checkbox" />
+    <nav>
+      <ul>
+        <div>
+          <span></span>
+          <label for="navbarCheckbox" class="navbar-hamburger"><i class="fas fa-bars"></i></label>
+        </div>
+        <li><a href="#">ABOUT</a><i class="fas fa-home"></i></li>
+        <li><a href="#">PRODUCTS</a><i class="fas fa-info-circle"></i></li>
+        <li><a href="#">BLOG</a><i class="fas fa-user-circle"></i></li>
+        <li><a href="#">CONTACT</a><i class="fas fa-bell"></i></li>
         <li>
+          <span></span>
           <div id="darklight" class="darklight" onclick="dark_mode_toggle()"><i class="fas fa-sun"></i></div>
         </li>
       </ul>
     </nav>
+
+
+
     <div class="content">{% block content %}{% endblock %}</div>
     <div class="footer">
       {% block footer %}
-      <div>&copy; Copyright 2010 by <a href="http://domain.invalid/">AnupamKris</a>.</div>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <p>&copy; Copyright 2010 by <a href="http://domain.invalid/">AnupamKris</a>.</p>
       {% endblock %}
     </div>
     <script type="text/javascript">
       var width = window.matchMedia("(max-width: 600px)")
       init_dark()
-
-      function openNav() {
-        if (width.matches) {
-          document.getElementById("navbar").style.top = "0px";
-          document.getElementById("navopc").setAttribute("onClick", "closeNav()")
-        } else {
-          document.getElementById("navbar").style.right = "0px";
-          document.getElementById("navopc").setAttribute("onClick", "closeNav()")
-        }
-      }
-
-      function closeNav() {
-        if (width.matches) {
-          document.getElementById("navbar").style.top = "-420px";
-          document.getElementById("navopc").setAttribute("onClick", "openNav()")
-        } else {
-          document.getElementById("navbar").style.right = "-420px";
-          document.getElementById("navopc").setAttribute("onClick", "openNav()")
-        }
-      }
     </script>
   </body>
 
